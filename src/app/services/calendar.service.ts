@@ -5,25 +5,25 @@ export class CalendarService {
 
   public calendar = [
     {
-      'title': 'first month'
+      'title': 'май 2017 г.'
     },
     {
-      'title': 'second month'
+      'title': 'июнь 2017 г.'
     },
     {
-      'title': 'third month'
+      'title': 'июль 2017 г.'
     },
     {
-      'title': 'fourth month'
+      'title': 'август 2017 г.'
     },
     {
-      'title': 'fifth month'
+      'title': 'сентябрь 2017 г.'
     },
     {
-      'title': 'sixth month'
+      'title': 'октябрь 2017 г.'
     },
     {
-      'title': 'seventh month'
+      'title': 'ноябрь 2017 г.'
     }
   ]
 
