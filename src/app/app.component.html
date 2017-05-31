@@ -1,3 +1,4 @@
-<h1>
-  {{title}}
-</h1>
+<div class="app">
+  <app-calendar-header (currentMonthEvent)="getCurrentMonth($event)"></app-calendar-header>
+  <app-calendar [currentMonth]="currentMonth"></app-calendar>
+</div>

@@ -1,0 +1,138 @@
+:host {
+  flex: 1 1 100%;
+  flex-flow: row wrap;
+  height: 100%;
+  padding-top: 4rem;
+  @media (min-width: 768px) {
+    padding-top: 6rem;
+  }
+}
+.month {
+  height: 100%;
+}
+.week {
+  display: flex;
+  flex: 0 0 100%;
+  height: 20%;
+  &:first-child {
+    .day {
+      border-top-color: transparent;
+    }
+  }
+}
+.day {
+  overflow: hidden;
+  display: flex;
+  flex: 1 1 0;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  border-top: 1px solid #bababa;
+  padding: 0.5rem;
+  @media (min-width: 768px) {
+    align-content: flex-end;
+    align-items: flex-end;
+  }
+  & + & {
+    @media (min-width: 768px) {
+      border-left: 1px solid #bababa;
+    }
+  }
+  &_header {
+    height: auto;
+    padding: 0.5em 0;
+    @media (min-width: 768px) {
+      border: 0 !important;
+      padding: 0 1rem;
+    }
+  }
+  &_weekend {
+    color: #bababa;
+    @media (min-width: 768px) {
+      background: #f5f5f5;
+      color: #958787;
+    }
+  }
+  &_otherMonth {
+    color: #bababa;
+  }
+  &__date {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3.4rem;
+    height: 3.4rem;
+    margin: 0 auto;
+    font-size: 1.3rem;
+    @media (min-width: 768px) {
+      margin: 0;
+      font-size: 1.6rem;
+    }
+    .day_current & {
+      border-radius: 50%;
+      background: #ff3737;
+      color: #fff;
+      font-weight: 500;
+    }
+  }
+}
+.event {
+  @media (max-width: 767px) {
+    display: none;
+  }
+  @media (min-width: 768px) {
+    overflow: hidden;
+    border-radius: 3px;
+    width: 100%;
+    margin: 0.1rem 0;
+    padding: 0.3rem 0.8rem;
+    background: #ffe5cf;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  &_more {
+    background-color: transparent;
+    color: #958787;
+    & ~ .event {
+      display: none;
+    }
+  }
+  .day__date + & {
+    display: block;
+    @media (max-width: 767px) {
+      overflow: hidden;
+      border-radius: 50%;
+      width: 8px;
+      height: 8px;
+      margin: auto;
+      background: #ccc;
+      text-indent: 110%;
+      white-space: nowrap;
+    }
+    @media (min-width: 768px) {
+      margin-top: 1rem;
+    }
+  }
+}
+.calendar {
+  display: flex;
+  flex-flow: row wrap;
+  height: 100%;
+  &__header {
+    border-bottom: 2px solid #b2b2b2;
+    height: 4%;
+    background: #f9f9f9;
+    font-size: 100%;
+    text-align: center;
+    text-transform: lowercase;
+    @media (min-width: 768px) {
+      border-bottom-width: 1px;
+      background: transparent;
+      font-size: 1.6rem;
+    }
+  }
+  &__table {
+    flex: 0 0 100%;
+    height: 96%;
+  }
+}

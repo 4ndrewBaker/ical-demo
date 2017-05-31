@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400&subset=cyrillic');
+
+.app {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+  color: #000;
+}
+b {
+  font-weight: 300;
+}
