@@ -1,6 +1,7 @@
 :host {
   flex: 1 1 100%;
   flex-flow: row wrap;
+  min-width: 320px;
   height: 100%;
   padding-top: 4rem;
   @media (min-width: 768px) {
@@ -14,6 +15,7 @@
   display: flex;
   flex: 0 0 100%;
   height: 20%;
+  flex-wrap: wrap;
   &:first-child {
     .day {
       border-top-color: transparent;
@@ -23,15 +25,16 @@
 .day {
   overflow: hidden;
   display: flex;
+  border-top: 1px solid #bababa;
   flex: 1 1 0;
   flex-flow: column nowrap;
   justify-content: flex-start;
   align-items: center;
-  border-top: 1px solid #bababa;
-  padding: 0.5rem;
+  padding: 0.3rem;
   @media (min-width: 768px) {
     align-content: flex-end;
     align-items: flex-end;
+    padding: 0.5rem;
   }
   & + & {
     @media (min-width: 768px) {
@@ -56,15 +59,44 @@
   &_otherMonth {
     color: #bababa;
   }
+  &_opened {
+    @media (max-width: 767px) {
+      z-index: 2;
+      overflow: visible;
+      position: relative;
+      height: 50%;
+      background: #fff;
+      box-shadow: inset 0 4px 6px rgba(#000, 0.1);
+    }
+    &::before {
+      @media (max-width: 767px) {
+        position: absolute;
+        top: 100%;
+        left: 1px;
+        right: 1px;
+        height: 6px;
+        background: #fff;
+        content: "";
+        box-shadow: 0 0 10px 2px #fff;
+      }
+    }
+    & > .event {
+      @media (max-width: 767px) {
+        display: none !important;
+      }
+    }
+  }
   &__date {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 3.4rem;
-    height: 3.4rem;
+    width: 2.2rem;
+    height: 2.2rem;
     margin: 0 auto;
     font-size: 1.3rem;
     @media (min-width: 768px) {
+      width: 3.4rem;
+      height: 3.4rem;
       margin: 0;
       font-size: 1.6rem;
     }
@@ -77,18 +109,17 @@
   }
 }
 .event {
-  @media (max-width: 767px) {
-    display: none;
-  }
+  display: none;
+  overflow: hidden;
+  border-radius: 3px;
+  width: 100%;
+  margin: 0.1rem 0;
+  padding: 0 0.8rem;
+  background: #ffe5cf;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   @media (min-width: 768px) {
-    overflow: hidden;
-    border-radius: 3px;
-    width: 100%;
-    margin: 0.1rem 0;
-    padding: 0 0.8rem;
-    background: #ffe5cf;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+    display: block;
   }
   &_more {
     background-color: transparent;
@@ -97,23 +128,32 @@
       display: none;
     }
   }
-  .day__date + & {
+  .day-description & {
+    display: inline-block;
+    width: auto;
+    max-width: 100%;
+    @media (max-width: 767px) {
+      padding-top: 0.5em;
+      padding-bottom: 0.5em;
+    }
+  }
+  .day > .day__date + & {
     display: block;
     @media (max-width: 767px) {
-      overflow: hidden;
       border-radius: 50%;
       width: 8px;
       height: 8px;
       margin: auto;
+      padding: 0;
       background: #ccc;
       text-indent: 110%;
-      white-space: nowrap;
     }
     @media (min-width: 768px) {
       margin-top: 1rem;
     }
   }
 }
+
 .calendar {
   display: flex;
   flex-flow: row wrap;
@@ -134,5 +174,39 @@
   &__table {
     flex: 0 0 100%;
     height: 96%;
+  }
+}
+
+.event-list {
+  @media (max-width: 767px) {
+    overflow: hidden;
+    overflow-y: scroll;
+    height: 100%;
+  }
+  &__item {
+    list-style-type: none;
+    & + & {
+      margin-top: 0.5em;
+    }
+  }
+}
+
+.day-description {
+  display: none;
+  position: relative;
+  z-index: 1;
+  padding: 1em 0.8rem;
+  background: #fff;
+  @media (max-width: 767px) {
+    display: block;
+    flex: 1 1 100%;
+    margin-bottom: -1px;
+    height: 151%;
+    box-shadow:
+      inset 0 -3px 6px rgba(#000, 0.1),
+      inset 0 3px 6px rgba(#000, 0.1);
+  }
+  @media (min-width: 768px) {
+    padding: 1em 1.6rem;
   }
 }

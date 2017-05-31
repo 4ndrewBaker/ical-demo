@@ -24,4 +24,5 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
   providers: [CalendarService],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

@@ -19,6 +19,7 @@ import {animate, style, transition, trigger} from '@angular/animations';
     ])
   ]
 })
+
 export class CalendarComponent implements OnInit, OnChanges {
   @Input() currentMonth: number = 0;
   private calendarData;
