@@ -1,23 +1,10 @@
 import {AfterViewInit, Component, ElementRef, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
 import {CalendarService} from "../../services/calendar.service";
-import {animate, style, transition, trigger} from '@angular/animations';
 
 @Component({
   selector: 'app-calendar-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss'],
-  animations: [
-    trigger('fadeInUpNgIf', [
-      transition(':enter', [
-        style({opacity: 0}),
-        animate('.2s linear', style({transform: 'none', opacity: 1}))
-      ]),
-      transition(':leave', [
-        style({transform: 'none', 'opacity': 1}),
-        animate('.2s linear', style({ opacity: 0}))
-      ])
-    ])
-  ]
+  styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit, AfterViewInit {
 
@@ -34,7 +21,6 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-
   }
 
   selectCurrentDate() {
