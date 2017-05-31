@@ -1,3 +1,4 @@
+<pre style="background:#f3f9dc;">{{ calendarData | async | json }}</pre>
 <div class="calendar">
   <div class="calendar__header week">
     <span class="day day_header">Пн</span>
@@ -9,7 +10,9 @@
     <span class="day day_header">Вс</span>
   </div>
   <div class="calendar__table">
-    <pre style="position:fixed;top:0;left:50%;line-height:1;margin:0;padding:0.4em;background:#f3f9dc;">{{calendarData.month}}</pre>
+    <!--div class="month" *ngFor="let month of calendarData | async">
+      {{month}}
+    </div-->
     <div class="month">
       <div class="week">
         <div class="day"><span class="day__date">1</span></div>

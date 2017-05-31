@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, EventEmitter, OnInit, Output} from '@angular/core';
+import {AfterViewInit, Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {CalendarService} from "../../services/calendar.service";
 
 @Component({
@@ -14,10 +14,11 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   @Output() currentMonthEvent = new EventEmitter();
 
   constructor(private calendarService: CalendarService) {
-    this.maxElementIndex = calendarService.calendarData.length - 1;
+    // this.maxElementIndex = calendarService.calendarData.length - 1;
   }
 
   ngOnInit() {
+
   }
 
   ngAfterViewInit() {
