@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
 import {CalendarService} from "./services/calendar.service";
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+// import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -18,8 +18,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule,
-    BrowserAnimationsModule
+    HttpModule
+    // BrowserAnimationsModule
   ],
   providers: [CalendarService],
   bootstrap: [AppComponent]

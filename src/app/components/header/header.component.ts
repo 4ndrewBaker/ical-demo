@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, EventEmitter, OnInit, Output} from '@angular/core';
 import {CalendarService} from "../../services/calendar.service";
 
 @Component({
@@ -6,12 +6,12 @@ import {CalendarService} from "../../services/calendar.service";
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
+
 export class HeaderComponent implements OnInit, AfterViewInit {
 
   private maxElementIndex:number;
   private currentIndex: number = 0;
   @Output() currentMonthEvent = new EventEmitter();
-  @ViewChild('helloWorldRef') private divHelloWorld: ElementRef;
 
   constructor(private calendarService: CalendarService) {
     this.maxElementIndex = calendarService.calendarData.length - 1;
