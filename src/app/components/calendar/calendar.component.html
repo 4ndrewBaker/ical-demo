@@ -1,4 +1,3 @@
-<pre style="background:#f3f9dc;">{{ calendarData | async | json }}</pre>
 <div class="calendar">
   <div class="calendar__header week">
     <span class="day day_header">Пн</span>
@@ -10,10 +9,24 @@
     <span class="day day_header">Вс</span>
   </div>
   <div class="calendar__table">
-    <!--div class="month" *ngFor="let month of calendarData | async">
-      {{month}}
-    </div-->
-    <div class="month">
+    <div class="month" *ngFor="let month of calendarData">
+      <div class="week" *ngFor="let week of month.weeks">
+        <div class="day"
+             *ngFor="let day of week.days"
+             [ngClass]="{day_otherMonth: day.otherMonth, day_weekend: day.weekend}">
+          <span class="day__date">
+            {{ day.date | date: 'd' }}
+          </span>
+          <ul *ngIf="day.events">
+            <li *ngFor="let event of day.events | keysPipe">
+              <span class="event">{{ event.value[event.key] }}</span>
+            </li>
+          </ul>
+          <!--{{ myDate | amDateFormat: 'YYYY-MM-DD' }}-->
+        </div>
+      </div>
+    </div>
+    <!--div class="month">
       <div class="week">
         <div class="day"><span class="day__date">1</span></div>
         <div class="day"><span class="day__date">2</span></div>
@@ -98,6 +111,6 @@
         <div class="day day_weekend day_otherMonth"><span class="day__date">3</span></div>
         <div class="day day_weekend day_otherMonth"><span class="day__date">4</span></div>
       </div>
-    </div>
+    </div-->
   </div>
 </div>

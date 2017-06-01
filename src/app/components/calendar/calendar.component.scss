@@ -9,24 +9,22 @@
   }
 }
 .month {
+  display: flex;
+  flex: 0 0 100%;
+  flex-wrap: wrap;
   height: 100%;
 }
 .week {
   display: flex;
   flex: 0 0 100%;
-  height: 20%;
   flex-wrap: wrap;
-  &:first-child {
-    .day {
-      border-top-color: transparent;
-    }
-  }
+  height: 20%;
 }
 .day {
   overflow: hidden;
   display: flex;
   border-top: 1px solid #bababa;
-  flex: 1 1 0;
+  flex: 0 0 percentage(1/7);
   flex-flow: column nowrap;
   justify-content: flex-start;
   align-items: center;
@@ -159,7 +157,10 @@
   flex-flow: row wrap;
   height: 100%;
   &__header {
-    border-bottom: 2px solid #b2b2b2;
+    display: flex;
+    flex: 0 0 100%;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #b2b2b2;
     height: 4%;
     background: #f9f9f9;
     font-size: 100%;
