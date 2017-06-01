@@ -18,10 +18,16 @@
             {{ day.date | date: 'd' }}
           </span>
           <ng-container *ngIf="day.events">
-            <span class="event"
-                  [ngClass]="'event_'+event.type"
-                  *ngFor="let event of day.events">
-              {{ event.title }}
+            <ng-container *ngFor="let event of day.events; let i = index">
+              <span class="event"
+                    [style.background]="event.type"
+                    *ngIf="i < 2">
+                {{ event.title }}
+              </span>
+            </ng-container>
+            <span class="event event_more"
+                  *ngIf="day.events.length > 2">
+              Еще {{ day.events.length - 2 }} ...
             </span>
           </ng-container>
           <!--{{ myDate | amDateFormat: 'YYYY-MM-DD' }}-->
