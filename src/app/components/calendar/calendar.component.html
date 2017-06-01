@@ -8,6 +8,7 @@
     <span class="day day_header">Сб</span>
     <span class="day day_header">Вс</span>
   </div>
+  {{ myDate }}
   <div class="calendar__table">
     <div class="month" *ngFor="let month of calendarData">
       <div class="week" *ngFor="let week of month.weeks">
@@ -18,19 +19,16 @@
             {{ day.date | date: 'd' }}
           </span>
           <ng-container *ngIf="day.events">
-            <ng-container *ngFor="let event of day.events; let i = index">
-              <span class="event"
-                    [style.background]="event.type"
-                    *ngIf="i < 2">
-                {{ event.title }}
-              </span>
-            </ng-container>
+            <span class="event"
+                  [style.background]="event.type"
+                  *ngFor="let event of day.events?.slice(0, 2); let i = index">
+              {{ event.title }}
+            </span>
             <span class="event event_more"
                   *ngIf="day.events.length > 2">
               Еще {{ day.events.length - 2 }} ...
             </span>
           </ng-container>
-          <!--{{ myDate | amDateFormat: 'YYYY-MM-DD' }}-->
         </div>
       </div>
     </div>

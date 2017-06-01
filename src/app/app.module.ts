@@ -9,7 +9,6 @@ import { HeaderComponent } from './components/header/header.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { CalendarService } from './services/calendar.service';
 import { KeysPipePipe } from './pipes/keys-pipe.pipe';
-// import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -23,7 +22,6 @@ import { KeysPipePipe } from './pipes/keys-pipe.pipe';
     FormsModule,
     HttpModule,
     MomentModule
-    // BrowserAnimationsModule
   ],
   providers: [CalendarService],
   bootstrap: [AppComponent]

@@ -1,6 +1,5 @@
-import {Component, Input, OnChanges, OnInit} from '@angular/core';
-
-import {CalendarService} from "../../services/calendar.service";
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { CalendarService } from "../../services/calendar.service";
 
 @Component({
   selector: 'app-calendar',
@@ -12,13 +11,16 @@ export class CalendarComponent implements OnInit, OnChanges {
   @Input() currentMonth: number = 0;
   calendarData: object;
   errorMessage: string;
-  myDate: any;
+  myDate: Date;
+  // sameDay: Date;
 
-  constructor(private calendarService: CalendarService) {}
+  constructor(private calendarService: CalendarService) {
+    // this.myDate = new Date();
+    // this.myDate = moment().format('dddd');
+  }
 
   ngOnInit() {
     this.getCalendarData();
-    this.getDatetoday();
     // this.calendarData = this.calendarService.calendarData[this.currentMonth];
   }
 
@@ -31,11 +33,6 @@ export class CalendarComponent implements OnInit, OnChanges {
       .then(
         data => this.calendarData = data,
         error =>  this.errorMessage = <any>error);
-  }
-
-  getDatetoday() {
-    this.myDate = new Date();
-    console.log(this.myDate);
   }
 
 }
