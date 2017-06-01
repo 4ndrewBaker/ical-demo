@@ -116,6 +116,12 @@
   background: #ffe5cf;
   white-space: nowrap;
   text-overflow: ellipsis;
+  &_home {
+    background: #ffe5cf;
+  }
+  &_work {
+    background: #b5ec92;
+  }
   @media (min-width: 768px) {
     display: block;
   }

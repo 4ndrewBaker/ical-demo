@@ -17,11 +17,13 @@
           <span class="day__date">
             {{ day.date | date: 'd' }}
           </span>
-          <ul *ngIf="day.events">
-            <li *ngFor="let event of day.events | keysPipe">
-              <span class="event">{{ event.value[event.key] }}</span>
-            </li>
-          </ul>
+          <ng-container *ngIf="day.events">
+            <span class="event"
+                  [ngClass]="'event_'+event.type"
+                  *ngFor="let event of day.events">
+              {{ event.title }}
+            </span>
+          </ng-container>
           <!--{{ myDate | amDateFormat: 'YYYY-MM-DD' }}-->
         </div>
       </div>
